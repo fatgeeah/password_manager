@@ -1,0 +1,223 @@
+@import url('https://fonts.googleapis.com/css2?family=Shadows+Into+Light&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Ysabeau+SC:wght@800&display=swap');
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root{
+    --global-background-color: #0C8346;
+    --global-shawdow-color: #8FD5A6;
+    --global-text-color: #F7F9F9;
+    --text-hover-color:#E5C2C0;
+    --a--hover-color:#000000;
+}
+
+html{
+      background-color: var(--global-background-color);
+      color: var(--global-text-color);
+}
+
+a{
+    font-family: 'Ysabeau SC', sans-serif;
+    font-weight: bold;
+    text-decoration: uppercase;
+    font-size: 25px;
+    text-decoration: none;
+    cursor: pointer;
+    color: var(--global-text-color);
+    padding: 5px;
+}
+
+a:hover{
+    color: var(--a--hover-color);
+}
+
+p{
+    font-family: 'Ysabeau SC', sans-serif;
+    font-weight: bold;
+    font-size: 40px;
+    text-decoration: none;
+    cursor: pointer;
+    color: #000000;
+}
+
+input{
+    display: flex;
+    font-family: 'Shadows Into Light', cursive;
+    color: var(--a--hover-color);
+    font-size: 25px;
+    text-transform: uppercase;
+    font-weight: 800;
+    border-radius: 5px;
+    width: 100%;
+    margin: 13px auto;
+    padding: 12px;
+    border: solid 0.5px #9ecaed;
+    box-shadow: 0 0 7px var(--text-hover-color);
+}
+input:focus{
+    box-shadow: 0 0 10px var(--text-hover-color);
+}
+
+header{
+box-shadow: 0 10px 15px -3px var(--global-shawdow-color);
+}
+
+header:hover{
+    background-color: var(--global-shawdow-color);
+}
+
+header nav{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding: 20px 30px;
+}
+
+header nav ul{
+    list-style-type: none;
+    display: inline-flex;
+}
+
+header nav ul li{
+    margin: 5px;
+}
+@media screen and (max-width: 640px) {
+    header nav{
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .brand{
+        margin-bottom: 30px;
+    }
+}
+
+footer{
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    padding: 20px;
+    width: 100%;
+    box-shadow: 0 10px 15px -3px var();
+}
+.modals-wrapper{
+    width: 100%;
+    height: 100%;
+    background-color:var(--text-hover-color) ;
+    display: none;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+}
+
+.modal{
+    margin-bottom: 100px;
+    border-radius: 15px;
+    background-color:var(--global-background-color);
+    min-width: 600px;
+    min-height: 500px;
+    padding: 20px;
+}
+
+#signup-modal , #login-modal{
+    display:none;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+#password-modal , #add-password-modal{
+    font-size: 20px;;
+    display:none;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+#close-modal{
+    border-radius: 10px;
+    color:var(--global-text-color);
+    background-color: var(--global-background-color);
+    position: absolute;
+    top: 5%;
+    right: 5%;
+    cursor: pointer;
+    padding: 15px;
+}
+.copy{
+    cursor: pointer;
+}
+h2{
+    margin-right: 300px;
+    margin-bottom: 30px;
+    color: var(--global-text-color);
+    font-family: 'Ysabeau SC', sans-serif;
+    font-weight: bold;
+    font-size: 50px; 
+}
+
+.container{
+    margin-top: 50px;
+    padding: 0 20px;
+    display: grid;
+    grid-template-columns:1fr 1fr 1fr 1fr;
+    grid-gap: 10px;
+    margin-bottom: 80px;
+}
+.card{
+    background-color: var(--global-shawdow-color);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    border-radius: 20px;
+    border: solid 5px var(--global-text-color);
+    box-shadow: 0 20px 25px -9px var(--a--hover-color);
+}
+
+.actions{
+    font-family: 'Shadows Into Light', cursive;
+    text-transform: uppercase;
+    font-weight: 800;
+    font-size: 40px;
+    color: #000000;
+    margin: 5px;
+}
+
+.actions a {
+    font-family: 'Ysabeau SC', sans-serif;
+    font-size: 20px;
+    display: none;
+    background-color: #0C8346;
+    flex-direction: column;
+    padding: 5px;
+    align-items: center;
+}
+.actions:hover .action-item{
+    display: flex;
+}
+
+.name{
+    font-family: 'Shadows Into Light', cursive;
+    text-transform: uppercase;
+    font-weight: 800 ;
+    color: #000000;
+    font-size: 30px;
+    margin-top: 10px;
+}
+
+@media screen and (max-width: 680px) {
+    .container{
+        grid-template-columns: 1fr 1fr;
+    }
+}    
+
+@media screen and (max-width: 420px) {
+    .container{
+        grid-template-columns: 1fr;
+    }
+}  
