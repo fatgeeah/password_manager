@@ -1,6 +1,6 @@
 <DOCTYPE html>
-<html lang="en">
     {% load static %}
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -8,46 +8,71 @@
     <title>Django Password Manager</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="stylesheet" href="{% static 'css/style100.css' %}">
-    <script src="{% static 'js/main.js' %}" defer></script>
+    <link rel="icon" href="{% static 'images/img6.png' %}">
+    <script src="{% static 'main.js' %}" defer></script>
 </head>
 <body>
     
     <header>
         <nav>
-               <div class="brand"><a href="">&nbsp;P.Manager <i class="fa fa-lock" aria-hidden="true"></i></a></div>
+               <div class="brand"><a href="">&nbsp;P.Manager <i class="fas fa-user-lock fa-flip-horizontal"  style="color: #000000;"></i></a></div>
             <ul>
                 <li><a href={% url 'index' %} "index.html">Home</a></li>
+                {% if request.user.is_anonymous %}
                 <li><a href="javascript:;" onclick="displayModal('signup-modal');">Signup</a></li>
                 <li><a href="javascript:;" onclick="displayModal('login-modal');">Login</a></li>
+                {% else %}
+                <li><a href="javascript:;" onclick="document.getElementById('logout-btn').click();">Logout</a></li>
+                <form hidden="true" action="." method="POST">
+                    {% csrf_token %}
+                    <input type="submit" id="logout-btn" name="logout">
+                </form>
                 <li><a href="javascript:;" onclick="displayModal('password-modal');">View</a></li>
                 <li><a href="javascript:;" onclick="displayModal('add-password-modal');">Add</a></li>
+                {% endif %}
             </ul>
         </nav>
     </header>
+<br>
+{% if messages %}
+    <div class="messages" style="text-align:center;">
+        {% for message in messages %}
+            <p>
+                {% if message.tags == "error" %}
+                    <i class="fa fa-exclamation" aria-hidden="true"></i>
+                    {% else %} 
+                    <i class="fa fa-check" aria-hidden="true"></i>
+                {% endif %}
+                &nbsp;{{message}}
+            </p>
+        {% endfor %}
+    </div>
+{% endif %}
+
+
  
     <div class="modals-wrapper">
         <span id="close-modal" title="close"><i class="fa fa-times"></i></span>
         <div class="modal" id="signup-modal">
-            <form action="">
+            <form action="." role="form" method="POST">
             {% csrf_token %}
                 <h2>SignUp</h2>
                 <input type="text" autocomplete="off" name="username" placeholder="username">
                 <input type="email"  autocomplete="off" name="email" placeholder="email">
                 <input type="password" autocomplete="off" name="password" placeholder="password">
                 <input type="password" autocomplete="off" name="password2" placeholder="confirm password">
-                <input type="submit" value="SignUp">
+                <input type="submit" value="SignUp" name="signup-form">
             </form>    
         </div> 
 
       <div class="modal" id="login-modal">
-        {% csrf_token %}
-          <form action="">
-              <h2>Login</h2>
+        <form action="." role="form" method="POST">
+            {% csrf_token %} 
+            <h2>Login</h2>
               <br>
               <input type="text" autocomplete="off" name="username" placeholder="username">
-              <input type="email" autocomplete="off" name="email" placeholder="email">
               <input type="password" autocomplete="off" name="password" placeholder="password">
-              <input type="submit" value="Login">
+              <input type="submit" value="Login" name="login-form">
           </form>    
       </div>
 
