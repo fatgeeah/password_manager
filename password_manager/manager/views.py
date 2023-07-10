@@ -7,6 +7,7 @@ from django.contrib.auth import authenticate , login, logout
 import random
 from django.core.mail import send_mail
 # Create your views here.
+
 def index(request):
     if request.method == "POST":
         if "signup-form" in request.POST:
@@ -49,14 +50,15 @@ def index(request):
             if new_login is None:
                 msg = f"Login failed! Make sure you are using the correct account details"
                 messages.error(request, msg)
-                return HttpResponseRedirect(request.path)   
+                return HttpResponseRedirect(request.path)
             else:
-                code = str(random.randint(1000000, 99999))
+                code = str(random.randint(100000, 999999))
                 send_mail(
-                    "P.Manager: confirm your email"
-                    f"Your verfication code is {code}.",
+                    "P.Manager: confirm email",
+                    f"Your verification code is {code}.",
                     settings.EMAIL_HOST_USER,
                     [new_login.email],
                     fail_silently=False,
-                ) 
+                )
+                
     return render(request, "index.html")
