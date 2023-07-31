@@ -1,9 +1,11 @@
-@import url('https://fonts.googleapis.com/css2?family=Shadows+Into+Light&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Ysabeau+SC:wght@800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Lumanosimo&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@700&display=swap');
+
 *{
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    overflow: hidden; 
 }
 
 :root{
@@ -20,9 +22,8 @@ html{
 }
 
 a{
-    font-family: 'Ysabeau SC', sans-serif;
+    font-family: 'Cinzel', serif;
     font-weight: bold;
-    text-decoration: uppercase;
     font-size: 25px;
     text-decoration: none;
     cursor: pointer;
@@ -35,7 +36,7 @@ a:hover{
 }
 
 p{
-    font-family: 'Ysabeau SC', sans-serif;
+
     font-weight: bold;
     font-size: 40px;
     text-decoration: none;
@@ -44,11 +45,10 @@ p{
 }
 
 input{
+    font-family: 'Lumanosimo', cursive;
     display: flex;
-    font-family: 'Shadows Into Light', cursive;
     color: var(--a--hover-color);
     font-size: 25px;
-    text-transform: uppercase;
     font-weight: 800;
     border-radius: 5px;
     width: 100%;
@@ -61,31 +61,74 @@ input:focus{
     box-shadow: 0 0 10px var(--text-hover-color);
 }
 
-header{
+input[type="submit"]
+{
+    font-family: 'Cinzel', serif;
+    display: flex;
+    color: var(--global-background-color);
+    font-size: 25px;
+    font-weight: 800;
+    border-radius: 10px;
+    width: 35%;
+    padding: 12px;
+    border: solid 0.8px var(--global-shawdow-color);
+    box-shadow: 0 0 10px var(--a--hover-color);  
+}
+
+.enter input[type="submit"]
+{
+    font-family: 'Cinzel', serif;
+    display: flex;
+    color: var(--global-background-color);
+    font-size: 25px;
+    font-weight: 800;
+    border-radius: 10px;
+    width: 15%;
+    padding: 12px;
+    border: solid 0.8px var(--global-shawdow-color);
+    box-shadow: 0 0 10px var(--a--hover-color);  
+}
+
+input[type="text2"]
+{
+    font-family: 'Lumanosimo', cursive;
+    display: flex;
+    color: var(--global-background-color);
+    font-size: 25px;
+    font-weight: 800;
+    border-radius: 10px;
+    width: 25%;
+    padding: 12px;
+    border: solid 0.5px #9ecaed;
+    box-shadow: 0 0 7px var(--text-hover-color);  
+}
+
+
+.head{
 box-shadow: 0 10px 15px -3px var(--global-shawdow-color);
 }
 
-header:hover{
+.head:hover{
     background-color: var(--global-shawdow-color);
 }
 
-header nav{
+.head nav{
     display: flex;
     flex-direction: row;
     justify-content: space-between;
     padding: 20px 30px;
 }
 
-header nav ul{
+.head nav ul{
     list-style-type: none;
     display: inline-flex;
 }
 
-header nav ul li{
+.head nav ul li{
     margin: 5px;
 }
 @media screen and (max-width: 640px) {
-    header nav{
+    .head nav{
         flex-direction: column;
         justify-content: center;
         align-items: center;
@@ -96,7 +139,9 @@ header nav ul li{
     }
 }
 
-footer{
+footer p{
+    font-size: 30px;
+    font-family: 'Cinzel', serif;
     position: fixed;
     bottom: 0;
     left: 0;
@@ -118,7 +163,7 @@ footer{
     margin-bottom: 100px;
     border-radius: 15px;
     background-color:var(--global-background-color);
-    min-width: 600px;
+    min-width: 650px;
     min-height: 500px;
     padding: 20px;
 }
@@ -151,12 +196,11 @@ footer{
     cursor: pointer;
 }
 h2{
-    margin-right: 300px;
+    font-family: 'Cinzel', serif;
     margin-bottom: 30px;
     color: var(--global-text-color);
-    font-family: 'Ysabeau SC', sans-serif;
     font-weight: bold;
-    font-size: 50px; 
+    font-size: 40px; 
 }
 
 .container{
@@ -180,7 +224,6 @@ h2{
 }
 
 .actions{
-    font-family: 'Shadows Into Light', cursive;
     text-transform: uppercase;
     font-weight: 800;
     font-size: 40px;
@@ -189,7 +232,6 @@ h2{
 }
 
 .actions a {
-    font-family: 'Ysabeau SC', sans-serif;
     font-size: 20px;
     display: none;
     background-color: #0C8346;
@@ -202,7 +244,6 @@ h2{
 }
 
 .name{
-    font-family: 'Shadows Into Light', cursive;
     text-transform: uppercase;
     font-weight: 800 ;
     color: #000000;
@@ -221,3 +262,49 @@ h2{
         grid-template-columns: 1fr;
     }
 }  
+
+ul.messages {
+    margin:10px 100px;
+    padding:0;
+    list-style-type:
+    none;
+}
+ul.messages li.success,
+ul.messages li.warning,
+ul.messages li.error,
+ul.messages li.info {
+    margin-left:350px;
+    padding:14px 20px;
+    list-style:none;
+    color:var(--a--hover-color);
+    border-radius: 15px;
+    width: 700px;
+    height:70px;
+    font-size: 25px;
+}
+
+ul.messages li.success { background:#00C851; color: var(--global-text-color); }
+ul.messages li.success a { color:#007E33; }
+
+ul.messages li.error { background:#ff4444; color:var(--global-text-color) }
+ul.messages li.error a { color:#CC0000; }
+
+ul.messages li.info { background:#2BBBAD; color:var(--global-text-color); }
+ul.messages li.info a { color:#0d47a1; }
+
+ul.messages li.warning { background:#FF8800; color: var(--global-text-color); }
+ul.messages li.warning a { color:#ffbb33; }
+
+ul.messages li a.close {
+    margin-top:-15px;
+    margin-left: 8px;
+    float:right;
+    opacity:2;
+    border:0;
+    box-shadow:none;
+    text-shadow:var(--a--hover-color);
+    color: var(--global-text-color);
+}
+ .btn{
+    visibility: hidden;
+ }

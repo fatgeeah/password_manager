@@ -1,0 +1,74 @@
+# this is mesages section
+
+# {% if messages %}
+#     <div class="messages" style="text-align:center;">
+#         {% for message in messages %}
+#             <p>
+#                 {% if message.tags == "error" %}
+#                     <i class="fa fa-exclamation" aria-hidden="true"></i>
+#                     {% else %} 
+#                     <i class="fa fa-check" aria-hidden="true"></i>
+#                 {% endif %}
+#                 &nbsp;{{message}}
+#             </p>
+#         {% endfor %}
+#     </div>
+# {% endif %}
+
+
+
+
+
+
+
+# this comes in the index header 
+
+# header class="head">
+#     <nav>
+#                <div class="brand"><a href="">&nbsp;P.Manager <i class="fas fa-user-lock fa-flip-horizontal"  style="color: #000000;"></i></a></div>
+#             <ul>
+#                 <li><a href={% url 'index' %} "index.html">Home</a></li>
+#                 {% if request.user.is_anonymous %}
+#                 <li><a href="javascript:;" onclick="displayModal('signup-modal');">Signup</a></li>
+#                 <li><a href="javascript:;" onclick="displayModal('login-modal');">Login</a></li>
+#                 {% else %}
+#                 <li><a href="javascript:;" onclick="document.getElementById('logout-btn').click();">Logout</a></li>
+#                 <form hidden="true" action="." method="POST">
+#                     {% csrf_token %}
+#                     <input type="submit" id="logout-btn" name="logout">
+#                 </form>
+#                 <li><a href="javascript:;" onclick="displayModal('password-modal');">View</a></li>
+#                 <li><a href="javascript:;" onclick="displayModal('add-password-modal');">Add</a></li>
+#                 {% endif %}
+#             </ul>
+#         </nav>
+#     </header> 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+# This is part of the code for password
+
+    # passwords =  Password.objects.all().filter(user=request.user)
+    # for password in passwords:
+    #     password.email = fernet.decrypt(password.email.encode()).decode()
+    #     password.password = fernet.decrypt(password.password.encode()).decode()
+    #     password.save()
+    
+    
+        # "passwords":passwords,    
+    
